@@ -1,0 +1,94 @@
+
+<!--  <form method="post" action="/patient/upload" enctype="multipart/form-data">{% csrf_token %}-->
+<!--    <div class="tb">-->
+<!--      <div class="td"><input type="number" placeholder="Enter Citizenship Number" name="number" required></div>-->
+<!--      <div class="td" id="s-cover">-->
+<!--        <button type="submit">Search</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </form>-->
+
+<html>
+{% load static %}
+<head>
+    <title>upload report</title>
+
+<style>
+    body
+    {
+        background-color:  #3333ff
+    }
+    fieldset
+    {
+        margin-top: 140px;
+        background-color: rgb(255,255,255, 0.58);
+        border-radius: 5px;
+        max-width: 700px;
+        border:none;
+        animation-name: zoomin;
+        animation-duration : 1s;
+    }
+
+    .content
+    {
+        color:black;
+    }
+
+    @keyframes zoomin
+    {
+        from{transform: scale(0)}
+        to{transform: scale(1)}
+    }
+
+    form input[type='number']
+    {
+        padding: 5px;
+        height: 44px;
+        width: 80%;
+        border-radius: 5px;
+        font-size:27px
+    }
+
+    form input[type='submit']
+    {
+        background-color: blue;
+        color: white;
+        border:none;
+        border-radius: 10px;
+        padding: 20px;
+        width: 150px;
+        font-size: 20px;
+        margin: 15px;
+    }
+
+</style>
+</head>
+<body>
+{% if messages %}
+<div class="messages" style="background-color:#FF8040">
+    {% for message in messages %}
+    <div class="container col-md-4 " style="text-align:center;"><font size="3px" >{{ message }}</font></div>
+    {% endfor %}
+</div>
+{% endif %}
+<center>
+    <fieldset>
+        <div clas="content">
+            <h1>Do you want to upload report?</h1>
+            <h3>Please Enter Citizenship No. Here!</h3>
+            <div style="background-color: white;">
+            <div style="width:50%; float:left; margin-top: 105px;">
+                <form method="post" action="/patient/upload" enctype="multipart/form-data">{% csrf_token %}
+                    <input type="number" placeholder="Citizenship Number" name="number" required>
+                    <input type="submit">
+                </form>
+            </div>
+            <div style="width:50%; float:right;">
+                <img style="margin:10px;" src="{% static 'Image/citizenship.svg' %}">
+            </div>
+            </div>
+        </div>
+    </fieldset>
+</center>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+{% load static %}
+<head>
+    <title>Report Saved</title>
+    <style>
+    body
+    {
+        background-color:  #3333ff;
+    }
+    fieldset
+    {
+        margin-top: 140px;
+        background-color: rgb(255,255,255, 0.58);
+        border-radius: 5px;
+        max-width: 700px;
+        border:none;
+        animation-name: zoomin;
+        animation-duration : 1s;
+    }
+
+    .content
+    {
+        color:black;
+    }
+
+    @keyframes zoomin
+    {
+        from{transform: scale(0)}
+        to{transform: scale(1)}
+    }
+
+    form input[type='number']
+    {
+        padding: 5px;
+        height: 44px;
+        width: 80%;
+        border-radius: 5px;
+        font-size:27px
+    }
+
+    a
+    {
+        background-color: blue;
+        color: white;
+        border:none;
+        border-radius: 10px;
+        padding: 20px;
+        width: 150px;
+        font-size: 20px;
+        margin: 15px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+</style>
+</head>
+<body>
+<center>
+    <fieldset>
+        <div class="content">
+            <h1>Your Report has been updated</h1>
+            <h3>Successfully!</h3>
+            <div>
+                <img style="margin:10px; width:100px; height:150px" src="{% static 'Image/success.svg' %}">
+                <h3>Saved!</h3>
+                <a href="/">Go Home</a>
+            </div>
+        </div>
+    </fieldset>
+</center>
+</body>
+</html>
+<!--<a>Report Saved Successfully !</a>-->
+<!--<form action="/">-->
+<!--<div class="container">-->
+<!--<button type="submit" class="btn btn-primary" style="width:130px; height:50px; font-size:24px; margin-left:1100px; margin-top:355px;">Go Home</button>-->
+<!--</div>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->

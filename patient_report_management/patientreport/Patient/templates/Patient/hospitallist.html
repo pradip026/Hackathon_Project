@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital_List</title>
+        <style>
+        body
+        {
+            background-color: #3333ff;
+        }
+
+        table
+        {
+            background-color: rgb(255,255,255,0.8);
+            border-radius: 3px;
+        }
+        td
+        {
+            padding: 15px;
+        }
+
+        table, tr, th
+        {
+            width:60%;
+            font-size:30px;
+            border: 1px solid lightgrey;
+            padding:20px;
+            text-align:center;
+            border-collapse:collapse;
+            margin: 15px;
+        }
+        a
+        {
+            text-decoration:none;
+            color: black;
+        }
+        a:hover
+        {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+<div class="py-2">
+<center>
+<h1>List of Hospitals</h1>
+
+    <table>
+        <tr>
+            <th>Hospital</th>
+            <th>Action</th>
+        </tr>
+    {% if values %}
+	{% for val in values %}
+		{% if val.Citizennumber == cit %}
+        {% ifchanged val.Hospitalname %}
+        <tr>
+            <td>{{ val.Hospitalname  }}</td>
+            <td>
+
+             <form method="post" action="/patient/myreport?name={{val.Hospitalname}}">{% csrf_token %}
+                 <input type="hidden" name="myfile" value="{{cit}}">
+                  <input type="submit" value="Open" style="background-color:green;display:inline-block; color:white; padding:12px; width:90px; border:none;font-size:20px; border-radius:2px;">
+            </form>
+            </td>
+        </tr>
+        {% endifchanged%}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+</table>
+</form>
+</center>
+</div>
+</body>
+</html>
